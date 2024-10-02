@@ -1,0 +1,107 @@
+cancel_orders - orders:
+
+Relationship: Each canceled order refers to an existing order.
+Type: Many cancel_orders to One orders.
+Foreign Key: cancel_orders.order_id references orders.order_id.
+
+cart_items - products:
+
+Relationship: Each cart item refers to a product.
+Type: Many cart_items to One products.
+Foreign Key: cart_items.product_id references products.product_id.
+
+cart_items - shopping_cart:
+
+Relationship: Each cart item is associated with a shopping cart.
+Type: Many cart_items to One shopping_cart.
+Foreign Key: cart_items.cart_id references shopping_cart.cart_id.
+
+logs - users:
+
+Relationship: Each log entry can be associated with a user who performed an action.
+Type: Many logs to One users.
+Foreign Key: logs.user_id references users.user_id.
+
+logs - orders:
+
+Relationship: Each log entry can be associated with an order.
+Type: Many logs to One orders.
+Foreign Key: logs.order_id references orders.order_id.
+
+media - products:
+
+Relationship: Each media item (e.g., image or video) is associated with a product.
+Type: Many media to One products.
+Foreign Key: media.product_id references products.product_id.
+
+order_items - products:
+
+Relationship: Each order item refers to a product.
+Type: Many order_items to One products.
+Foreign Key: order_items.product_id references products.product_id.
+
+order_items - orders:
+
+Relationship: Each order item is part of an order.
+Type: Many order_items to One orders.
+Foreign Key: order_items.order_id references orders.order_id.
+
+orders - users:
+
+Relationship: Each order is made by a user.
+Type: Many orders to One users.
+Foreign Key: orders.user_id references users.user_id.
+
+payments - orders:
+
+Relationship: Each payment is linked to an order.
+Type: Many payments to One orders.
+Foreign Key: payments.order_id references orders.order_id.
+
+permissions - roles:
+
+Relationship: Each permission is associated with a role.
+Type: Many permissions to One roles.
+Foreign Key: permissions.role_id references roles.role_id.
+
+product_specs - products:
+
+Relationship: Each product specification is associated with a product.
+Type: Many product_specs to One products.
+Foreign Key: product_specs.product_id references products.product_id.
+
+reviews - products:
+
+Relationship: Each review is related to a product.
+Type: Many reviews to One products.
+Foreign Key: reviews.product_id references products.product_id.
+
+reviews - users:
+
+Relationship: Each review is written by a user.
+Type: Many reviews to One users.
+Foreign Key: reviews.user_id references users.user_id.
+
+session_tokens - users:
+
+Relationship: Each session token belongs to a user.
+Type: Many session_tokens to One users.
+Foreign Key: session_tokens.user_id references users.user_id.
+
+shopping_cart - users:
+
+Relationship: Each shopping cart is associated with a user.
+Type: One shopping_cart to One users.
+Foreign Key: shopping_cart.user_id references users.user_id.
+
+users - roles:
+
+Relationship: Each user is assigned a role.
+Type: Many users to One roles.
+Foreign Key: users.role_id references roles.role_id.
+
+user_verifications - users:
+
+Relationship: Each verification is for a specific user.
+Type: One user_verifications to One users.
+Foreign Key: user_verifications.user_id references users.user_id.
